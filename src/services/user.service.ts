@@ -1,4 +1,4 @@
-import * as userDao from './user.dao';
+import * as userDao from '../dao/user.dao';
 
 export function fetchUsers() {
   return userDao.fetchUsers();

@@ -1,7 +1,7 @@
 import Joi from 'joi';
 import { Request, Response, NextFunction } from 'express';
 
-import validate from '../../utils/validate';
+import validate from '../utils/validate';
 
 const SCHEMA = {
   username: Joi.string().label('username').max(90).required(),

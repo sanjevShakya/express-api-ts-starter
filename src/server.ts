@@ -4,7 +4,7 @@ import middleware from './middleware';
 import errorHandlers from './middleware/errorHandler';
 
 import './env';
-import routes from './services';
+import routes from './routes';
 import { connection } from './db';
 import config from './config'
 import { applyMiddleware, applyRoutes } from './utils';

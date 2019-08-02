@@ -1,5 +1,5 @@
 import { getRepository, getConnection } from 'typeorm';
-import { User } from './user.model';
+import { User } from '../models/user.model';
 
 export function fetchUsers() {
   return getRepository(User).find();

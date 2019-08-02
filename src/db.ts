@@ -1,5 +1,4 @@
 import { createConnection, ConnectionOptions, DatabaseType } from 'typeorm';
-import models from './services/models';
 
 import config from './config';
 
@@ -10,8 +9,13 @@ const connectionConfig = {
   username: config.DATABASE.USER,
   password: config.DATABASE.PASSWORD,
   database: config.DATABASE.NAME,
-  entities: models,
-  synchronize: true,
+  entities: [
+    __dirname + '/../**/*.model{.ts,.js}',
+  ],
+  synchronize: false,
+  cli: {
+    migrationsDir: 'src/migrations',
+  }
 }
 
 export const connection = createConnection(connectionConfig as ConnectionOptions);

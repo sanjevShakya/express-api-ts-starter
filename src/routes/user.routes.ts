@@ -1,5 +1,5 @@
-import * as userController from './user.controller';
-import * as validator from './user.validator';
+import * as userController from '../controllers/user.controller';
+import * as validator from '../validators/user.validator';
 
 export default [
   {
