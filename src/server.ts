@@ -5,7 +5,7 @@ import errorHandlers from './middleware/errorHandler';
 
 import './env';
 import routes from './routes';
-import { connection } from './db';
+import initializeDb from './db';
 import config from './config'
 import { applyMiddleware, applyRoutes } from './utils';
 
@@ -13,7 +13,7 @@ const router = express();
 const { PORT } = config.APP;
 const server = http.createServer(router);
 
-connection
+initializeDb()
   .then(() => {
     applyMiddleware(middleware, router);
     applyRoutes(routes, router);

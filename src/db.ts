@@ -1,21 +1,9 @@
-import { createConnection, ConnectionOptions, DatabaseType } from 'typeorm';
+import { createConnection, ConnectionOptions, getConnectionOptions } from 'typeorm';
 
-import config from './config';
-
-const connectionConfig = {
-  type: config.DATABASE.TYPE as DatabaseType,
-  host: config.DATABASE.HOST,
-  port: config.DATABASE.PORT,
-  username: config.DATABASE.USER,
-  password: config.DATABASE.PASSWORD,
-  database: config.DATABASE.NAME,
-  entities: [
-    __dirname + '/../**/*.model{.ts,.js}',
-  ],
-  synchronize: false,
-  cli: {
-    migrationsDir: 'src/migrations',
-  }
+function initializeDb() {
+  return getConnectionOptions().then(connectionOptions => {
+    return createConnection(connectionOptions as ConnectionOptions )
+  })
 }
 
-export const connection = createConnection(connectionConfig as ConnectionOptions);
+export default initializeDb;
