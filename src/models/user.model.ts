@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from "typeorm";
 
 @Entity()
 export class User {
@@ -10,4 +10,10 @@ export class User {
 
   @Column('text')
   public email: string;
+
+  @CreateDateColumn({ type: 'timestamp' })
+  public createdAt: Date;
+
+  @UpdateDateColumn({ type: 'timestamp' })
+  public updatedAt: Date;
 }

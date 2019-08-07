@@ -9,7 +9,10 @@ export class createUserTable1564992383899 implements MigrationInterface {
         {
           name: 'id',
           type: 'int',
-          isPrimary: true
+          isPrimary: true,
+          isGenerated: true,
+          isUnique: true,
+          isNullable: false,
         },
         {
           name: 'username',
@@ -18,6 +21,15 @@ export class createUserTable1564992383899 implements MigrationInterface {
         {
           name: 'email',
           type: 'varchar',
+          isUnique: true,
+        },
+        {
+          name: 'createdAt',
+          type: 'timestamp'
+        },
+        {
+          name: 'updatedAt',
+          type: 'timestamp'
         }
       ]
     }), true);
