@@ -1,17 +1,18 @@
-import * as userDao from '../dao/user.dao';
+import * as userDao from "../dao/user.dao";
 
 export function fetchUsers() {
-  return userDao.fetchUsers();
+    return userDao.fetchUsers();
 }
 
 export function create(user) {
-  return userDao.create(user);
+    return userDao.create(user);
 }
 
 export function update(user, userId) {
-  return userDao.update(user, userId);
+    return userDao.update(user, userId);
 }
 
 export function remove(userId) {
-  return userDao.remove(userId);
+    const deletedAt = new Date().toISOString();
+    return userDao.remove(userId, deletedAt);
 }

@@ -3,17 +3,20 @@ import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateCol
 @Entity()
 export class User {
   @PrimaryGeneratedColumn()
-  public id: number;
+    public id: number;
 
-  @Column('text')
+  @Column({ type: "text" })
   public username: string;
 
-  @Column('text')
+  @Column({ type: "text" })
   public email: string;
 
-  @CreateDateColumn({ type: 'timestamp' })
+  @CreateDateColumn({ type: "timestamp" })
   public createdAt: Date;
 
-  @UpdateDateColumn({ type: 'timestamp' })
+  @UpdateDateColumn({ type: "timestamp" })
   public updatedAt: Date;
+
+  @Column({ type: "timestamp", nullable: true })
+  public deletedAt: Date;
 }
