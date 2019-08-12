@@ -1,7 +1,7 @@
 import * as userDao from "../dao/user.dao";
 
-export function fetchUsers() {
-    return userDao.fetchUsers();
+export function fetchUsers(query) {
+    return userDao.fetchUsers(query);
 }
 
 export function create(user) {

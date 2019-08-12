@@ -4,7 +4,8 @@ import { User } from "../models/user.model";
 import * as userService from "../services/user.service";
 
 export async function fetchUsers(req: Request, res: Response) {
-    const users: User[] = await userService.fetchUsers();
+    const query = req.query;
+    const users = await userService.fetchUsers(query);
 
     res.status(200).json(users);
 }
