@@ -1,6 +1,7 @@
 import {
     handleCors,
     handleCompression,
+    setAppPortAndHost,
     handleBodyRequestParsing,
 } from "./common";
 
@@ -8,4 +9,4 @@ import {
     handleAPIDocs
 } from "./apiDocs";
 
-export default [ handleCors, handleCompression, handleBodyRequestParsing, handleAPIDocs];
+export default [ setAppPortAndHost, handleCors, handleCompression, handleBodyRequestParsing, handleAPIDocs];

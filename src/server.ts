@@ -8,6 +8,7 @@ import routes from "./routes";
 import initializeDb from "./db";
 import config from "./config";
 import { applyMiddleware, applyRoutes } from "./utils";
+import { logger } from "./utils/logger";
 
 const router = express();
 const { PORT } = config.APP;
@@ -20,18 +21,18 @@ initializeDb()
         applyMiddleware(errorHandlers, router);
 
         server.listen(PORT, () => {
-            console.log(`Server is running http://localhost:${PORT}...`);
+            logger.info(`Server started at http://${router.get("host")}:${router.get("port")}/api`);
         });
     });
 
 
 process.on("uncaughtException", e => {
-    console.log(e);
+    logger.error("Uncaught exception", e);
     process.exit(1);
 });
 
 process.on("unhandledRejection", e => {
-    console.log(e);
+    logger.error("Unhandled rejection", e);
     process.exit(1);
 });
 
