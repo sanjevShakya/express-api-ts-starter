@@ -4,7 +4,7 @@ export abstract class HttpClientError extends Error {
     public readonly statusCode!: number;
     public readonly name!: string;
 
-    constructor(message: object | string) {
+    public constructor(message: object | string) {
         if(message instanceof Object) {
             super(JSON.stringify(message));
         } else {
@@ -17,19 +17,19 @@ export abstract class HttpClientError extends Error {
 }
 
 export class Http400Error extends HttpClientError {
-    readonly statusCode = httpStatusCodes.BAD_REQUEST;
+    public readonly statusCode = httpStatusCodes.BAD_REQUEST;
     public isJoi = false;
 
-    constructor(message: string | object = httpStatusCodes.getStatusText(httpStatusCodes.BAD_REQUEST), isJoi: boolean = false) {
+    public constructor(message: string | object = httpStatusCodes.getStatusText(httpStatusCodes.BAD_REQUEST), isJoi: boolean = false) {
         super(message);
         this.isJoi = isJoi;
     }
 }
 
 export class Http404Error extends HttpClientError {
-    readonly statusCode = httpStatusCodes.NOT_FOUND;
+    public readonly statusCode = httpStatusCodes.NOT_FOUND;
 
-    constructor(message: string | object = httpStatusCodes.getStatusText(httpStatusCodes.NOT_FOUND)) {
+    public constructor(message: string | object = httpStatusCodes.getStatusText(httpStatusCodes.NOT_FOUND)) {
         super(message);
     }
 }

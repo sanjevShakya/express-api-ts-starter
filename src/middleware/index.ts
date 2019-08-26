@@ -5,7 +5,7 @@ import {
 } from "./common";
 
 import {
-  handleAPIDocs
-} from './apiDocs';
+    handleAPIDocs
+} from "./apiDocs";
 
 export default [ handleCors, handleCompression, handleBodyRequestParsing, handleAPIDocs];
