@@ -84,7 +84,7 @@
     "sha.js": "^2.4.11",
     "swagger-jsdoc": "^3.4.0",
     "swagger-ui-express": "^4.0.7",
-    "typeorm": "^0.2.18",
+    "typeorm": "^0.2.25",
     "winston": "^3.2.1",
     "winston-daily-rotate-file": "^3.10.0"
   },
